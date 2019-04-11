@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ButterApplication", "ButterApplication\ButterApplication.vcxproj", "{642814D0-6B40-4244-96A9-0584D7719837}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ButterEngine", "ButterEngine\ButterEngine.vcxproj", "{34BB1EA5-5BC8-4166-97DB-90F21AF24E78}"
+EndProject
+
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34BB1EA5-5BC8-4166-97DB-90F21AF24E78}.Debug|x64.ActiveCfg = Debug|x64
+		{34BB1EA5-5BC8-4166-97DB-90F21AF24E78}.Debug|x64.Build.0 = Debug|x64
+		{34BB1EA5-5BC8-4166-97DB-90F21AF24E78}.Release|x64.ActiveCfg = Release|x64
+		{34BB1EA5-5BC8-4166-97DB-90F21AF24E78}.Release|x64.Build.0 = Release|x64
+		{642814D0-6B40-4244-96A9-0584D7719837}.Debug|x64.ActiveCfg = Debug|x64
+		{642814D0-6B40-4244-96A9-0584D7719837}.Debug|x64.Build.0 = Debug|x64
+		{642814D0-6B40-4244-96A9-0584D7719837}.Release|x64.ActiveCfg = Release|x64
+		{642814D0-6B40-4244-96A9-0584D7719837}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09281360-E730-4DAD-AA05-66176B5E12C9}
+	EndGlobalSection
+EndGlobal
