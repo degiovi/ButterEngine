@@ -1,7 +1,7 @@
 #pragma once
 
 #include "btrpch.h"
-#include "ButterEngine/Core.h"
+#include "ButterEngine/Core/Core.h"
 
 
 namespace Butter

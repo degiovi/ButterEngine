@@ -16,6 +16,7 @@ IncludeDir["GLFW"] = "ButterEngine/thirdparty/GLFW/include"
 IncludeDir["Glad"] = "ButterEngine/thirdparty/Glad/include"
 IncludeDir["imgui"] = "ButterEngine/thirdparty/imgui"
 IncludeDir["glm"] = "ButterEngine/thirdparty/glm"
+IncludeDir["stb_image"] = "ButterEngine/thirdparty/stb_image"
 
 group "Dependencies"
 	include "ButterEngine/thirdparty/GLFW"
@@ -41,7 +42,9 @@ project "ButterEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/thirdparty/stb_image/**.h",
+		"%{prj.name}/thirdparty/stb_image/**.cpp"
 	}
 
 	includedirs
@@ -51,7 +54,8 @@ project "ButterEngine"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.imgui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links
@@ -89,6 +93,63 @@ project "ButterEngine"
 		runtime "Release"
 		optimize "on"
 
+
+
+project "ButterTextureEditor"
+
+	location "ButterTextureEditor"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir("bin/" .. outputdir .. "/%{prj.name}")
+	objdir("bin/int/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"ButterEngine/src",
+		"ButterEngine/thirdparty/spdlog/include",
+		"ButterEngine/thirdparty",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.imgui}"
+	}
+
+	links
+	{
+		"ButterEngine",
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+		defines
+		{
+			"BTR_PLATFORM_WINDOWS"
+		}
+
+	filter "configurations:Debug"
+		defines "BTR_DEBUG"
+		runtime "Debug"
+		symbols "on"
+
+		
+	filter "configurations:Release"
+		defines "BTR_RELEASE"
+		runtime "Release"
+		optimize "on"
+
+		
+	filter "configurations:Dist"
+		defines "BTR_DIST"
+		runtime "Release"
+		optimize "on"
 
 
 project "ButterApplication"

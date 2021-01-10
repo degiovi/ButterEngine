@@ -22,11 +22,13 @@ namespace Butter
 		return 0;
 	}
 
-	OpenGLShader::OpenGLShader(const std::string & in_filePath)
+	OpenGLShader::OpenGLShader()
 	{
+		/*
 		std::string shaderSrc = ReadFile(in_filePath);
 		auto shaderSrcs = PreProcess(shaderSrc);
 		Compile(shaderSrcs);
+
 
 		// Extract name from filepath
 		auto lastSlash = in_filePath.find_last_of("/\\");
@@ -34,6 +36,7 @@ namespace Butter
 		auto lastDot = in_filePath.rfind('.');
 		auto count = lastDot == std::string::npos ? in_filePath.size() - lastSlash : lastDot - lastSlash;
 		name = in_filePath.substr(lastSlash, count);
+		*/
 	}
 
 	OpenGLShader::~OpenGLShader()
@@ -41,22 +44,59 @@ namespace Butter
 		glDeleteProgram(rendererID);
 	}
 
+	void OpenGLShader::AddShaderSource(const std::string & in_filePath, ShaderType in_shaderType)
+	{
+		std::string shaderSrc = ReadFile(in_filePath);
+
+		if (in_shaderType == ShaderType::Vertex)
+		{
+			shaders.emplace(GL_VERTEX_SHADER, shaderSrc);
+		}
+		else if (in_shaderType == ShaderType::Fragment)
+		{
+			shaders.emplace(GL_FRAGMENT_SHADER, shaderSrc);
+		}
+		else if (in_shaderType == ShaderType::Compute)
+		{
+			shaders.emplace(GL_COMPUTE_SHADER, shaderSrc);
+		}
+		else
+		{
+			BTR_CORE_ASSERT(false, "Invalid shader type specified, cannot add source.");
+		}
+
+
+		
+	}
+
 	std::string OpenGLShader::ReadFile(const std::string & in_filePath)
 	{
 		std::string result;
-		std::ifstream stream(in_filePath, std::ios::in, std::ios::binary);
+		std::ifstream stream(in_filePath, std::ios::in | std::ios::binary);
 
 		if (stream)
 		{
 			stream.seekg(0, std::ios::end);
-			result.resize(stream.tellg());
-			stream.seekg(0, std::ios::beg);
-			stream.read(&result[0], result.size());
-			stream.close();
+			size_t size = stream.tellg();
+			
+			if (size != -1)
+			{
+				result.resize(stream.tellg());
+				stream.seekg(0, std::ios::beg);
+				stream.read(&result[0], result.size());
+				stream.close();
+			}
+			else
+			{
+				BTR_CORE_ASSERT("Could not read file '{0}'", in_filePath);
+				return std::string("");
+			}
+
 		}
 		else
 		{
 			BTR_CORE_ASSERT("Could not read file '{0}'", in_filePath);
+			return std::string("");
 		}
 
 		return result;
@@ -84,20 +124,20 @@ namespace Butter
 			size_t nextLinePos = src.find_first_not_of("\r\n", eol);
 			pos = src.find((typeToken, nextLinePos));
 
-			shaderSrcs[shaderType] = src.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? src.size() - 1 : nextLinePos));
+			shaderSrcs[shaderType] = (pos == std::string::npos) ? src.substr(nextLinePos) : src.substr(nextLinePos, pos - nextLinePos);
 			
 			return shaderSrcs;
 		}
 
 	}
 
-	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string> & shaderSrcs)
+	void OpenGLShader::Compile()
 	{
 		GLuint program = glCreateProgram();
 
-		std::vector<GLenum> shaderIDs(shaderSrcs.size());
+		std::vector<GLenum> shaderIDs;
 
-		for (auto & [key,value] : shaderSrcs)
+		for (auto & [key,value] : shaders)
 		{
 			GLenum type = key;
 			const std::string & src = value;
@@ -132,6 +172,8 @@ namespace Butter
 			shaderIDs.push_back(shader);
 		}
 
+		rendererID = program;
+
 		glLinkProgram(program);
 
 		GLint isProgramLinked = 0;
@@ -158,9 +200,10 @@ namespace Butter
 		for (auto id : shaderIDs)
 		{
 			glDetachShader(program, id);
+			glDeleteShader(id);
 		}
 		
-		rendererID = program;
+
 	}
 
 	void OpenGLShader::Bind() const
@@ -178,6 +221,16 @@ namespace Butter
 		UploadUniformInt(in_name, in_value);
 	}
 
+	void OpenGLShader::SetFloat(const std::string & in_name, float in_value)
+	{
+		UploadUniformFloat(in_name, in_value);
+	}
+
+	void OpenGLShader::SetFloat2(const std::string & in_name, const glm::vec2 & in_value)
+	{
+		UploadUniformFloat2(in_name, in_value);
+	}
+
 	void OpenGLShader::SetFloat3(const std::string & in_name, const glm::vec3 & in_value)
 	{
 		UploadUniformFloat3(in_name, in_value);
@@ -193,10 +246,16 @@ namespace Butter
 		UploadUniformMat4(in_name, in_value);
 	}
 
+	void OpenGLShader::DispatchCompute(uint32_t x, uint32_t y, uint32_t z)
+	{
+		glDispatchCompute(x, y, z);
+	}
+
 	void OpenGLShader::UploadUniformInt(const std::string & in_name, int in_value)
 	{
 		GLint location = glGetUniformLocation(rendererID, in_name.c_str());
-		glUniform1f(location, in_value);
+
+		glUniform1i(location, in_value);
 	}
 
 	void OpenGLShader::UploadUniformFloat(const std::string & in_name, float in_value)

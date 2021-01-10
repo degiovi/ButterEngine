@@ -1,183 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ButterEngine">
-      <UniqueIdentifier>{717349AE-5DD6-D852-065C-1109F29DA4D5}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\ECS">
-      <UniqueIdentifier>{3BB8E2D3-27B1-0126-50E3-E6AA3C3BE131}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine">
+      <UniqueIdentifier>{E8196AC1-D412-8913-FD44-6E98E99C681F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\Events">
-      <UniqueIdentifier>{35B64E49-A117-2C57-2A85-720996E56216}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\Core">
+      <UniqueIdentifier>{40AF47A5-AC1B-03A0-750F-9BFDE13A2508}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\ImGui">
-      <UniqueIdentifier>{5BF9D057-47DD-91AD-B03D-8C009C407C2F}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\ECS">
+      <UniqueIdentifier>{32C24F3B-1E51-D904-C76F-EDFFB3DDE9AA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\Platform">
-      <UniqueIdentifier>{E51EF3F3-518B-AEEE-1A7F-464C86AAD056}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\Events">
+      <UniqueIdentifier>{CC90121B-38C8-5AB2-41D2-BED5AD8881AB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\Platform\OpenGL">
-      <UniqueIdentifier>{7974C594-652F-B540-0EE7-2D8BFA80FFD0}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\ImGui">
+      <UniqueIdentifier>{125DA84E-FE56-D1A0-E7C3-67B1D35C370D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\Platform\Windows">
-      <UniqueIdentifier>{1FDE8F85-8BF6-76AF-54A3-0649C07A0B49}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\Platform">
+      <UniqueIdentifier>{3CFB1746-A8BD-4BD0-F16D-DA5C5D6F24AE}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ButterEngine\Renderer">
-      <UniqueIdentifier>{3726D0CE-A392-8BC9-6C86-2327D8B1AD31}</UniqueIdentifier>
+    <Filter Include="src\ButterEngine\Platform\OpenGL">
+      <UniqueIdentifier>{F028BA73-DC79-A5B5-05DE-9377F18D381F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ButterEngine\Platform\Windows">
+      <UniqueIdentifier>{76211B43-E28F-70C2-2B79-2BC29726665E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ButterEngine\Renderer">
+      <UniqueIdentifier>{8E02F520-FAC4-28AB-4375-B737AF760189}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty">
+      <UniqueIdentifier>{50A5DA7C-3C5D-1CCA-A564-F525913BB7BA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\stb_image">
+      <UniqueIdentifier>{EA39E0BF-D6C8-6989-7FE7-7D846B557A2F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Butter.h" />
-    <ClInclude Include="src\ButterEngine\Application.h">
-      <Filter>ButterEngine</Filter>
+    <ClInclude Include="src\Butter.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\ButterEngine\Core.h">
-      <Filter>ButterEngine</Filter>
+    <ClInclude Include="src\ButterEngine\Core\Application.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\Core.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\DataTypes.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\EntryPoint.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\Layer.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\LayerStack.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\Log.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\Transform.h">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Core\Window.h">
+      <Filter>src\ButterEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\ECS\ECS.h">
-      <Filter>ButterEngine\ECS</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ButterEngine\EntryPoint.h">
-      <Filter>ButterEngine</Filter>
+      <Filter>src\ButterEngine\ECS</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Events\ApplicationEvent.h">
-      <Filter>ButterEngine\Events</Filter>
+      <Filter>src\ButterEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Events\Event.h">
-      <Filter>ButterEngine\Events</Filter>
+      <Filter>src\ButterEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Events\KeyEvent.h">
-      <Filter>ButterEngine\Events</Filter>
+      <Filter>src\ButterEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Events\MouseEvent.h">
-      <Filter>ButterEngine\Events</Filter>
+      <Filter>src\ButterEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\ImGui\ImGuiLayer.h">
-      <Filter>ButterEngine\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ButterEngine\Layer.h">
-      <Filter>ButterEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ButterEngine\LayerStack.h">
-      <Filter>ButterEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ButterEngine\Log.h">
-      <Filter>ButterEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ButterEngine\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLBuffer.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLContext.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLRendererAPI.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLShader.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLTexture2D.h">
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Platform\Windows\WindowsWindow.h">
-      <Filter>ButterEngine\Platform\Windows</Filter>
+      <Filter>src\ButterEngine\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\Buffer.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Renderer\Camera.h">
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\RenderCommand.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\RenderContext.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\Renderer.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\RendererAPI.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\Shader.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButterEngine\Renderer\Texture.h">
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ButterEngine\Renderer\VertexArray.h">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\ButterEngine\Transform.h">
-      <Filter>ButterEngine</Filter>
+    <ClInclude Include="src\btrpch.h">
+      <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\ButterEngine\Window.h">
-      <Filter>ButterEngine</Filter>
+    <ClInclude Include="thirdparty\stb_image\stb_image.h">
+      <Filter>thirdparty\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\btrpch.h" />
+    <ClInclude Include="src\ButterEngine\Components\BoundingBox.h" />
+    <ClInclude Include="src\ButterEngine\Components\Octree.h" />
+    <ClInclude Include="src\ButterEngine\Utilities\List.hpp" />
+    <ClInclude Include="src\ButterEngine\Utilities\FileUtil.h" />
+    <ClInclude Include="src\ButterEngine\Utilities\ObjLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ButterEngine\Application.cpp">
-      <Filter>ButterEngine</Filter>
+    <ClCompile Include="src\ButterEngine\Core\Application.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Core\DataTypes.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Core\Layer.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Core\LayerStack.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Core\Log.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Core\Transform.cpp">
+      <Filter>src\ButterEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\ImGui\ImGuiBuild.cpp">
+      <Filter>src\ButterEngine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\ImGui\ImGuiLayer.cpp">
-      <Filter>ButterEngine\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ButterEngine\Layer.cpp">
-      <Filter>ButterEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ButterEngine\LayerStack.cpp">
-      <Filter>ButterEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ButterEngine\Log.cpp">
-      <Filter>ButterEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ButterEngine\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLBuffer.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLRendererAPI.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>ButterEngine\Platform\OpenGL</Filter>
+      <Filter>src\ButterEngine\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Platform\Windows\WindowsWindow.cpp">
-      <Filter>ButterEngine\Platform\Windows</Filter>
+      <Filter>src\ButterEngine\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\Buffer.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Renderer\Camera.cpp">
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\RenderCommand.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\RenderContext.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\Renderer.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\RendererAPI.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\Shader.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButterEngine\Renderer\Texture.cpp">
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ButterEngine\Renderer\VertexArray.cpp">
-      <Filter>ButterEngine\Renderer</Filter>
+      <Filter>src\ButterEngine\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\ButterEngine\Transform.cpp">
-      <Filter>ButterEngine</Filter>
+    <ClCompile Include="src\btrpch.cpp">
+      <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\btrpch.cpp" />
-    <ClCompile Include="ImGuiBuild.cpp">
-      <Filter>ButterEngine\ImGui</Filter>
+    <ClCompile Include="thirdparty\stb_image\stb_image.cpp">
+      <Filter>thirdparty\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ButterEngine\Components\BoundingBox.cpp" />
+    <ClCompile Include="src\ButterEngine\Components\Octree.cpp" />
+    <ClCompile Include="src\ButterEngine\Utilities\FileUtil.cpp" />
+    <ClCompile Include="src\ButterEngine\ECS\ECS.cpp" />
+    <ClCompile Include="src\ButterEngine\Utilities\ObjLoader.cpp" />
   </ItemGroup>
 </Project>

@@ -64,4 +64,14 @@ namespace Butter
 		glDrawElements(GL_TRIANGLES, in_vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
+
+	void OpenGLRendererAPI::DrawTriangle()
+	{
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+	}
+
+	void OpenGLRendererAPI::MemBarrier()
+	{
+		glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+	}
 }

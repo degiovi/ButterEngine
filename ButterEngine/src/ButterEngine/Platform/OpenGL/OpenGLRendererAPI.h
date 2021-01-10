@@ -16,5 +16,8 @@ namespace Butter
 		virtual void Clear() override;
 
 		virtual void DrawIndexed(const Ref<VertexArray> & in_vertexArray) override;
+		virtual void DrawTriangle() override;
+
+		virtual void MemBarrier() override;
 	};
 }

@@ -1,23 +1,30 @@
 #pragma once
-#include "ButterEngine/Core.h"
+#include "ButterEngine/Core/Core.h"
 #include "btrpch.h"
 
 namespace Butter
 {
 
-	/*
+	
 	// --------------------------------------------------------------------- //
-	// ENTITY
+	// OBJECT
 	// --------------------------------------------------------------------- //
 
-	class BUTTER_API Entity
+	class BUTTER_API Object
 	{
 	public:
 
-		Entity(uint32_t id) : id(id) {}
-		inline uint32_t GetID() { return id; }
-	private:
+
+		Object(uint32_t id) : id(id) {}
+		Object(uint32_t id, std::string tempName) : id(id) { }
+
 		const uint32_t id;
+
+		std::string data;
+		
+
+	private:
+		
 		
 	};
 
@@ -40,27 +47,32 @@ namespace Butter
 	};
 
 	// --------------------------------------------------------------------- //
-// ENTITY MANAGER
+// OBJECT MANAGER
 // --------------------------------------------------------------------- //
 
-	class BUTTER_API EntityManager
+	class BUTTER_API ObjectManager
 	{
-		static EntityManager * instance;
+		static ObjectManager * instance;
 
 	public:
-		std::unordered_map<std::shared_ptr<Entity>, std::vector<std::shared_ptr<Component>>> entityComponentMap;
+		//std::unordered_map<std::shared_ptr<Object>, std::vector<std::shared_ptr<Component>>> objectComponentMap;
 
 	public:
 
-		std::shared_ptr<Entity> CreateEntity()
+		std::shared_ptr<Object> CreateObject()
 		{
-			std::shared_ptr<Entity> entity = std::make_shared<Entity>(entityID);
+			std::shared_ptr<Object> object = std::make_shared<Object>(objectID);
 
-			entityComponentMap.emplace(entity);
+			//entityComponentMap.emplace(entity);
 
-			entityID++;
+			objectID++;
 
-			return entity;
+			return object;
+		}
+
+		std::shared_ptr<Object> CreateObjectFromTemplate(std::string templateName)
+		{
+			std::shared_ptr<Object> object = std::make_shared<Object>(objectID, templateName);
 		}
 
 		void DestroyEntity()
@@ -69,7 +81,7 @@ namespace Butter
 		}
 
 		template<typename T>
-		void AddComponent(std::shared_ptr<Entity> entity, std::shared_ptr<T> component)
+		void AddComponent(std::shared_ptr<Object> object, std::shared_ptr<T> component)
 		{
 			//entityComponentMap.at(entity).push_back(component);
 			//BTR_INFO("Added component to entity");
@@ -77,8 +89,8 @@ namespace Butter
 
 
 	private:
-		uint32_t entityID = 0;
+		uint32_t objectID = 0;
 	};
 
-		*/
+		
 }

@@ -1,0 +1,3 @@
+List<Vector3> vertices
+List<Vector2> UVs
+List<Vector3> normals

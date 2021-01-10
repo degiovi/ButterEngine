@@ -8,11 +8,13 @@ namespace Butter
 	class BUTTER_API MouseMovedEvent : public Event
 	{
 	public:
-		MouseMovedEvent(float in_x, float in_y)
-			: x(in_x), y(in_y) {}
+		MouseMovedEvent(float in_x, float in_y, float in_deltaX, float in_deltaY)
+			: x(in_x), y(in_y), deltaX(in_deltaX), deltaY(in_deltaY) {}
 
 		inline float GetX() const { return x; }
 		inline float GetY() const { return y; }
+		inline float GetDeltaX() const { return deltaX; }
+		inline float GetDeltaY() const { return deltaY; }
 
 		std::string ToString() const override
 		{
@@ -26,6 +28,7 @@ namespace Butter
 
 	private:
 		float x, y;
+		float deltaX, deltaY;
 
 	};
 

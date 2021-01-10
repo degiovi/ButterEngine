@@ -105,19 +105,20 @@ namespace Butter
 			{
 				case GLFW_PRESS:
 				{
-					KeyPressedEvent event(in_key, 0);
+					KeyPressedEvent event(in_key, 0, glfwGetKeyName(in_key, in_scanCode));
+
 					data.eventCallback(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
-					KeyReleasedEvent event(in_key);
+					KeyReleasedEvent event(in_key, glfwGetKeyName(in_key, in_scanCode));
 					data.eventCallback(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
-					KeyPressedEvent event(in_key, 1);
+					KeyPressedEvent event(in_key, 1, glfwGetKeyName(in_key, in_scanCode));
 					data.eventCallback(event);
 					break;
 				}
@@ -162,8 +163,9 @@ namespace Butter
 		glfwSetCursorPosCallback(window, [](GLFWwindow * in_window, double in_xPos, double in_yPos)
 		{
 			WindowData & data = *(WindowData*)glfwGetWindowUserPointer(in_window);
-
-			MouseMovedEvent event((float)in_xPos, (float)in_yPos);
+			float deltaX = in_xPos - data.PrevMouseX;
+			float deltaY = in_yPos - data.PrevMouseY;
+			MouseMovedEvent event((float)in_xPos, (float)in_yPos, (float)deltaX, (float)deltaY);
 			data.eventCallback(event);
 		});
 	}

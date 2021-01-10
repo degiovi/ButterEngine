@@ -37,6 +37,15 @@ namespace Butter
 			rendererAPI->DrawIndexed(in_vertexArray);
 		}
 
+		inline static void DrawTriangle()
+		{
+			rendererAPI->DrawTriangle();
+		}
+
+		inline static void MemBarrier()
+		{
+			rendererAPI->MemBarrier();
+		}
 
 	private:
 		static Scope<RendererAPI> rendererAPI;

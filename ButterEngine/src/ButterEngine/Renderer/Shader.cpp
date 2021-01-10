@@ -6,12 +6,12 @@
 
 namespace Butter
 {
-	Ref<Shader> Butter::Shader::Create(const std::string & in_filePath)
+	Ref<Shader> Butter::Shader::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
 			case RendererAPI::API::None:		BTR_CORE_ASSERT(false, "Selected RendererAPI is not supported.");
-			case RendererAPI::API::OpenGL:		return CreateRef<OpenGLShader>(in_filePath);
+			case RendererAPI::API::OpenGL:		return CreateRef<OpenGLShader>();
 		}
 
 		BTR_CORE_ASSERT(false, "Unknown Renderer API, could not create shader.");
@@ -33,14 +33,14 @@ namespace Butter
 
 	Ref<Shader> ShaderLibrary::Load(const std::string & in_filePath)
 	{
-		auto shader = Shader::Create(in_filePath);
+		auto shader = Shader::Create();
 		Add(shader);
 		return shader;
 	}
 
 	Ref<Shader> ShaderLibrary::Load(const std::string & in_name, const std::string & in_filePath)
 	{
-		auto shader = Shader::Create(in_filePath);
+		auto shader = Shader::Create();
 		Add(in_name, shader);
 		return shader;
 	}

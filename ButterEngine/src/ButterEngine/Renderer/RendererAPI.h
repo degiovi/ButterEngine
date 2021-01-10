@@ -24,6 +24,9 @@ namespace Butter
 		virtual void Clear() = 0;
 
 		virtual void DrawIndexed(const Ref<VertexArray> & in_vertexArray) = 0;
+		virtual void DrawTriangle() = 0;
+
+		virtual void MemBarrier() = 0;
 
 		inline static API GetAPI() { return api; }
 		static Scope<RendererAPI> Create();

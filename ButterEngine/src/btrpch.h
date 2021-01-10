@@ -17,7 +17,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "ButterEngine/Log.h"
+#include "ButterEngine/Core/Log.h"
 
 #ifdef BTR_PLATFORM_WINDOWS
 	#include <Windows.h>

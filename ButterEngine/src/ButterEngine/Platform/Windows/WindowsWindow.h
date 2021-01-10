@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ButterEngine/Window.h"
+#include "ButterEngine/Core/Window.h"
 #include "ButterEngine/Renderer/RenderContext.h"
 
 #include <GLFW/glfw3.h>
@@ -29,6 +29,9 @@ namespace Butter
 		bool IsVSync() const override;
 
 		inline virtual void * GetNativeWindow() const { return window; }
+
+		double PrevMouseX;
+		double PrevMouseY;
 	private:
 
 		virtual void Init(const WindowProperties& properties);
@@ -44,6 +47,9 @@ namespace Butter
 			std::string title;
 			unsigned int width, height;
 			bool vSync;
+
+			double PrevMouseX;
+			double PrevMouseY;
 
 			EventCallbackFn eventCallback;
 		};

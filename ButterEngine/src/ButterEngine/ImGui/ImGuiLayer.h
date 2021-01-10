@@ -1,6 +1,6 @@
 #pragma once
-#include "ButterEngine/Core.h"
-#include "ButterEngine/Layer.h"
+#include "ButterEngine/Core/Core.h"
+#include "ButterEngine/Core/Layer.h"
 
 #include "ButterEngine/Events/Event.h"
 #include "ButterEngine/Events/ApplicationEvent.h"
@@ -16,10 +16,15 @@ namespace Butter
 		ImGuiLayer();
 		~ImGuiLayer() = default;
 
-		void OnAttach();
-		void OnDetach();
-		void OnUpdate();
-		void OnEvent(Event & in_event);
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnUpdate() override;
+
+		virtual void BeginFrame() override;
+		virtual void EndFrame() override;
+
+		virtual void OnEvent(Event & in_event) override {};
+	/*
 	private:
 		// Implement our input events to IMGUI
 		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent & e);
@@ -30,7 +35,7 @@ namespace Butter
 		bool OnKeyReleasedEvent(KeyReleasedEvent & e);
 		bool OnKeyTypedEvent(KeyTypedEvent & e);
 		bool OnWindowResizeEvent(WindowResizeEvent & e);
-	
+	*/
 	private:
 	
 		float time;
